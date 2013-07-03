@@ -20,4 +20,4 @@ attribute :group, :kind_of => String, :required => true
 # For hipchat notifications:
 attribute :estatsd_host, :kind_of => String
 attribute :hipchat_key, :kind_of => String
-attribute :app_environment, :kind_of => String, :default => node[:app_environment]
+attribute :app_environment, :kind_of => String, :default => node.chef_environment
