@@ -4,7 +4,7 @@ maintainer_email 'jpl@opscode.com'
 license          'All rights reserved'
 description      'Installs/Configures opscode-erlang'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.2'
+version          '0.1.3'
 
 depends "erlang_binary", "~> 0.0.3"
 depends "runit", "~> 0.13" # internal fork
