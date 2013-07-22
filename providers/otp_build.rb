@@ -10,6 +10,16 @@ action :build do
   @run_context.include_recipe "erlang_binary::default"
   @run_context.include_recipe "erlang_binary::rebar"
 
+  # destination dir in case it doesn't exist
+  dest_dir = ::File.dirname(new_resource.tarball)
+  directory dest_dir do
+    owner new_resource.owner
+    group new_resource.group
+    mode new_resource.dir_mode
+    recursive true
+    not_if "test -d #{dest_dir}"
+  end
+
   if new_resource.source =~ /^git/
     # Source is a git reference. Sync git repo.
     @run_context.include_recipe "git"
@@ -64,16 +74,6 @@ action :build do
     command "make relclean rel"
     cwd src_dir
     action :nothing
-  end
-
-  # destination dir in case it doesn't exist
-  dest_dir = ::File.dirname(new_resource.tarball)
-  directory dest_dir do
-    owner new_resource.owner
-    group new_resource.group
-    mode new_resource.dir_mode
-    recursive true
-    not_if "test -d #{dest_dir}"
   end
 
   # tar it up
