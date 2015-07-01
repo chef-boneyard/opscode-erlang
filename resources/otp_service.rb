@@ -59,3 +59,7 @@ attribute :app_environment, :kind_of => String, :default => node.chef_environmen
 # This is handy to force a build from scratch when using git.
 # Careful! Don't delete your WIP source!
 attribute :force_clean_src, :kind_of => [TrueClass, FalseClass], :default => false
+
+# Tool that built the release:
+# reltool or relx
+attribute :release_type, :equal_to => [:reltool, :relx], :default => :reltool

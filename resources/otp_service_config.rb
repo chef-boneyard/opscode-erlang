@@ -29,3 +29,7 @@ attribute :error_log_mb, :kind_of => Integer, :default => 20
 # user and group that own the files
 attribute :owner, :kind_of => String, :required => true
 attribute :group, :kind_of => String, :required => true
+
+# Tool that built the release:
+# reltool or relx
+attribute :release_type, :equal_to => [:reltool, :relx], :default => :reltool

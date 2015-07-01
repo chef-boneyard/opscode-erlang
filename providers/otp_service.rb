@@ -99,6 +99,7 @@ action :deploy do
       console_log_mb new_resource.console_log_mb
       error_log_count new_resource.error_log_count
       error_log_mb new_resource.error_log_mb
+      release_type new_resource.release_type
     end
 end
 
