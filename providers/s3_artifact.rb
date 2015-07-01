@@ -35,7 +35,7 @@ end
 
 # AWS object name
 def object_name(new_resource)
-    tarball = "#{new_resource.revision}.tar.gz"
+    tarball = "#{new_resource.name}-#{new_resource.revision}.tar.gz"
     platform = "#{node['platform']}-#{node['platform_version']}"
     arch = node['kernel']['machine']
     "#{new_resource.artifacts_root}/#{platform}/#{arch}/#{new_resource.name}/#{tarball}"

@@ -214,9 +214,9 @@ end
 def config_location
   case new_resource.release_type
   when :reltool
-    "#{target_dir}/etc/"
+    "#{target_dir}/etc"
   when :relx
-    "#{target_dir}/"
+    "#{target_dir}"
   end
 end
 
